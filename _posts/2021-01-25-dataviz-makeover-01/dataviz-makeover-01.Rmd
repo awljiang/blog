@@ -1,13 +1,7 @@
 ---
 title: "DataViz Makeover 01"
 description: |
-  This is the first DataViz Makeover for SMU ISSS608 Visual Analytics and Applications course.
-  
-  Objective: To create an alternative visualisation to understand Singapore's labour force in 2019. 
-  
-  Original visualisation can be found in chart 6 of the report "Labour Force in Singapore 2019".
-  
-  (https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx) 
+  Objective: To create an alternative visualisation to understand Singapore's labour force in 2019. The original visualisation can be found in chart 6 of the report "Labour Force in Singapore 2019". (https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx) 
 author:
   - name: Angeline Jiang
     url: www.linkedin.com/in/angeline-jiang
@@ -93,6 +87,7 @@ kbl(advantages_2) %>%
 # 3.0 Data Visualisation Steps 
 
 ## 3.1	Data Preparation
+
 ### 3.1.1	Resident Labour Force dataset
 
 Step 1: Download "Table (7) Resident Labour Force Aged Fifteen Years and Over by Age and Sex, 2009 – 2019 (June)" from https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx.
@@ -104,17 +99,12 @@ img3111_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3111_path)
 
 ```
-Step 2: Format the excel
 
+Step 2: Format the excel.
 Unmerge the cells and remove unnecessary rows/columns.
-
 Unmerge row 5,  rename column D as “Age” and delete columns A-C, F, H, J, L, N, P, R, T, V, X and Z (i.e. empty columns).
-
-Delete rows 1-4, 6 and 19
-
-Rename the columns to include “(old)”
-
-Save the excel file.
+Delete rows 1-4, 6 and 19.
+Rename the columns to include “(old)” and save the excel file.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -123,6 +113,7 @@ img3112_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3112_path)
 
 ```
+
 Step 3: Open Tableau and connect to the excel file saved out in Step 2.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
@@ -132,6 +123,7 @@ img3113_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3113_path)
 
 ```
+
 A view of the table in Tableau
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
@@ -141,7 +133,8 @@ img3114_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3114_path)
 
 ```
-Step 4: Pivot the table and rename the columns to “year” and “counts”.
+
+Step 4: Pivot the table and rename the columns to “Year” and “Counts”.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="150%", out.height="180%"}
 library(knitr)
@@ -150,7 +143,8 @@ img3115_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3115_path)
 
 ```
-Step 5: Right click on the drop down list under "Age" column, click Create group to 3 groups "15 - 24", "25 - 54" and "55 & over" by highlighting the subgroups and click on the group button. Rename the group and repeat for the other 2 groups.
+
+Step 5: Right click on the drop down list under "Age" column, click "Create Group" to create 3 groups "15 - 24", "25 - 54" and "55 & over" by highlighting the subgroups and clicking on the "Group" button. Rename the group and repeat for the other 2 groups.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="150%", out.height="150%"}
 library(knitr)
@@ -159,6 +153,7 @@ img3116_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3116_path)
 
 ```
+
 Step 6: Open a new worksheet in Tableau and drag "Age (group)" to Columns, "Year" to Rows and "Counts" to "Text" in the marks card. To obtain the row total, click on "Analysis" and drag "Totals" to "Rows Grand Totals".
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="90%", out.height="90%"}
@@ -168,6 +163,7 @@ img3117_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3117_path)
 
 ```
+
 Step 7: To obtain the share (%), click on "Sum(Counts)" in the marks card, and click on "Quick Table Calculations" and select "Percent of Total"
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
@@ -177,6 +173,7 @@ img3118_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.1
 include_graphics(img3118_path)
 
 ```
+
 Step 8: Save this table for using in the visualisation by clicking on "Analysis" at the ribbon bar, select "View Data", followed by "Export All" and save into a folder.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="150%", out.height="150%"}
@@ -189,7 +186,8 @@ include_graphics(img3119_path)
 
 
 ### 3.1.2	Resident Labour Force Participation Rate dataset
-Step 1: Download Labour Force Participation rate dataset from Singstat Table Builder (https://www.tablebuilder.singstat.gov.sg/publicfacing/mainMenu.action) and follow the illustration below
+
+Step 1: Download Labour Force Participation rate dataset from Singstat Table Builder (https://www.tablebuilder.singstat.gov.sg/publicfacing/mainMenu.action) by following the illustration below
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -200,10 +198,8 @@ include_graphics(img3121_path)
 ```
 
 Step 2: Open the excel file and copy the “outside labour force” table to the top right as shown below.
-
 Rename the years “In” and “Out” to reflect the counts for in and out of labour force.
-
-Delete rows 1-5, 7, 19 onwards, rename column A to “Age”. Save the Excel file.
+Delete rows 1-5, 7, 19 onward and rename column A to “Age”. Save the Excel file.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -212,6 +208,7 @@ img3122_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.1.2
 include_graphics(img3122_path)
 
 ```
+
 A view of the final table in Excel
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
@@ -232,7 +229,7 @@ include_graphics(img3124_path)
 
 ```
 
-Step 4: Right click on the drop down list under "Age" column, click Create group to 3 groups "15 - 24", "25 - 54" and "55 & over" by highlighting the subgroups and click on the group button. Rename the group and repeat for the other 2 groups.
+Step 4: Right click on the drop down list under "Age" column, click "Create Group" to create 3 groups "15 - 24", "25 - 54" and "55 & over" by highlighting the subgroups and clicking on the "Group" button. Rename the group and repeat for the other 2 groups.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="90%", out.height="90%"}
 library(knitr)
@@ -262,7 +259,7 @@ include_graphics(img3127_path)
 
 ```
 
-Step 7: Drag the csv file saved in Step 6 into the pane, right click the drop down list for the column "Year_In/Out" and click on Split. Rename the new columns "Year" and "In/Out".
+Step 7: Drag the csv file saved in Step 6 into the polaris, right click the drop down list for the column "Year_In/Out" and click on Split. Rename the new columns "Year" and "In/Out".
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -272,7 +269,7 @@ include_graphics(img3128_path)
 
 ```
 
-Step 8: Open a new Tableau workbook,drag "In/Out" into "Columns", "Age (group)" and "Year" into "Rows" and "Counts" into the text marks card. Click on "Analysis" and drag "Total" into "Row Grand Totals".
+Step 8: Open a new Tableau workbook, drag "In/Out" into "Columns", "Age (group)" and "Year" into "Rows" and "Counts" into the Text marks card. Click on "Analysis" and drag "Total" into "Row Grand Totals".
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="100%", out.height="100%"}
 library(knitr)
@@ -302,7 +299,7 @@ include_graphics(img31211_path)
 
 ```
 
-Step 11: Open the csv file saved in step 10. To get the labour force participation rate, filter the column "In/Out" and delete rows that are "Out" ("In' refers to individuals in the labour force while "Out" refers to individuals not in the labour force). Save the file.
+Step 11: Open the csv file saved in step 10. To get the labour force participation rate, filter the column "In/Out" and delete rows that are "Out" ("In" refers to individuals in the labour force while "Out" refers to individuals not in the labour force). Save the file.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -312,8 +309,10 @@ include_graphics(img31212_path)
 
 ```
 
+
 ### 3.1.3	Median Age of Labour Force
-Step 1: Download "Table (2) Key Characteristics of Resident Labour Force, 2009 – 2019 (June)" from https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx. Table as shown below
+
+Step 1: Download "Table (2) Key Characteristics of Resident Labour Force, 2009 – 2019 (June)" from https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -323,7 +322,7 @@ include_graphics(img3131_path)
 
 ```
 
-Step 2: Keep only columns B and G, delete rows 1-6 and 18 onward. Insert one row in row 1 and label “Year” and “Median Age”, to obtain the table below. Save the excel
+Step 2: Keep only columns B and G, delete rows 1-6 and 18 onward. Insert one row in row 1 and label “Year” and “Median Age”, to obtain the table below. Save the excel.
 
 ```{r, echo=FALSE, message=FALSE, out.width="25%", out.height="25%"}
 library(knitr)
@@ -338,7 +337,7 @@ include_graphics(img3132_path)
 
 ### 3.2.1	Importing and transforming data for creation of visualisation
 
-Step 1: Import csv file for resident labour force shares saved in 3.1.1 (step 8).
+Step 1: Import csv file for shares of resident labour force saved in 3.1.1 (step 8).
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -378,7 +377,7 @@ include_graphics(img3214_path)
 
 ```
 
-Step 5: Drag in the participation rate file to create a union with the shares file and edit the relationship as shown below.
+Step 5: Drag in the participation rate file to create a union with the labour force share file and edit the relationship as shown below.
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -418,9 +417,10 @@ include_graphics(img3218_path)
 
 ```
 
-### 3.2.2	Creation of Charts to show shares of resident labour force
 
-##### Do steps 1 - 5 to create visualisation for 2019 labour force data, and steps 6 - 8 onwards for comparison with 2009 and 2014.
+### 3.2.2	Creation of charts to show shares of resident labour force
+
+##### Do steps 1 - 5 to create visualisation for 2019 labour force data, and steps 6 - 8 for comparison with 2009 and 2014.
 
 Step 1: Open a new Tableau worksheet. Drag "Shares (%)" to "Columns", "Age (group)" to "Rows" and "Year" to filter marks card. In the filter, select "Year", then "Next" and check the box for 2019. 
 
@@ -492,7 +492,7 @@ include_graphics(img3227_path)
 
 ```
 
-Step 8: Open a new Tableau worksheet. Drag the variables into "Columns" and "Rows" as shown below. Drag "Percentage Change wrt 2009" and "Percentage Change wrt 2014" into their respective text marks card for the label to appear and format the label to show in "pp" (similar to step 2). Click on the x-axis (click on the x-axis, then format to ensure that the range for both charts are the same.) and y-axis and un-tick "Show Header" to hide the axis. Drag the respective dimension into colour marks card to format the colour of the bar and format the colour of the bar as shown below. 
+Step 8: Open a new Tableau worksheet. Drag "Percentage Change wrt 2009" and "Percentage Change wrt 2014" into "Columns" and "Age (group)" into Rows" as shown below. Ensure that "Bar" is being selected at the marks card. Drag "Percentage Change wrt 2009" and "Percentage Change wrt 2014" into their respective Text marks card for the label to appear and format the label to show in "pp" (similar to step 2). Ensure that the range for both charts are the sam by clicking on the x-axis, then click "Edit axis". Click on the x-axis and y-axis and un-tick "Show Header" to hide the axis. Drag "Percentage Change wrt 2009" and "Percentage Change wrt 2014" into colour marks card to format the colour of the bar as shown below. 
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
 library(knitr)
@@ -501,6 +501,7 @@ img3228_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/3.2.2
 include_graphics(img3228_path)
 
 ```
+
 
 ### 3.2.3	Creation of Charts to show participation rate
 
@@ -536,9 +537,10 @@ include_graphics(img3233_path)
 
 ```
 
+
 ### 3.2.4	Creation of Charts to show median age trend
 
-Step 1: Open a new Tableau worksheet and select data source "Median Age". Drag "Year" into "Columns", "Median Age" into "Rows" and text marks card to obtain the following chart (ensure to select line in the marks card)
+Step 1: Open a new Tableau worksheet and select data source "Median Age". Drag "Year" into "Columns", "Median Age" into "Rows" and Text marks card to obtain the following chart (ensure to select Line in the marks card)
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="90%", out.height="90%"}
 library(knitr)
@@ -548,15 +550,16 @@ include_graphics(img3241_path)
 
 ```
 
+
 # 4.0 Final Data Visualisation Output
 
 ### Data Visualisation Link (Tableau Online):
-https://public.tableau.com/profile/angeline.jiang#!/vizhome/DataVizMakeover_01_v2/FinalDashboard
+https://public.tableau.com/views/DataVizMakeoverSingaporesResidentLabourForcein2019/FinalDashboard?:language=en&:display_count=y&:origin=viz_share_link
 
-```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="180%"}
+```{r, echo=FALSE, message=FALSE, out.width="200%", out.height="200%"}
 library(knitr)
 library(png)
-img4_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/4.2_final design.png"
+img4_path <- "/awljiang/blog/_posts/2021-01-25-dataviz-makeover-01/data/4.3_final design.png"
 include_graphics(img4_path)
 
 ```
