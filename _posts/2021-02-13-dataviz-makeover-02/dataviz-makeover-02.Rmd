@@ -1,0 +1,558 @@
+---
+title: "DataViz Makeover 02"
+description: |
+  Objective: To create an alternative visualisation to understand the willingness of the public on Covid-19 vaccination. The data used was obtained from Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub hosted at Github (https://github.com/YouGov-Data/covid-19-tracker). The research mainly utilised survey conducted on January 2021. 
+author:
+  - name: Angeline Jiang
+    url: www.linkedin.com/in/angeline-jiang
+date: 02-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 1.0 Critiques and Suggestions for Current Visualisation
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="150%", out.height="150%"}
+library(knitr)
+library(png)
+img1_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/1_current visualisation.png"
+include_graphics(img1_path)
+
+```
+
+### 1.1 Clarity
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+clarity <- read_excel("D:\\awljiang\\blog\\_posts\\2021-02-13-dataviz-makeover-02\\data\\1.1_clarity.xlsx")  
+clarity_2 <- data.frame(clarity)
+
+kbl(clarity_2) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "30em") %>% 
+  column_spec(3, border_right = T, width = "30em")
+
+```
+
+### 1.2 Aesthetics
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+aesthetics <- read_excel("D:\\awljiang\\blog\\_posts\\2021-02-13-dataviz-makeover-02\\data\\1.2_aesthetics.xlsx")  
+aesthetics_2 <- data.frame(aesthetics)
+
+kbl(aesthetics_2) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "30em") %>% 
+  column_spec(3, border_right = T, width = "30em")
+
+```
+
+#  2.0 Proposed Design
+
+```{r, echo=FALSE, message=FALSE, out.width="120%", out.height="150%"}
+library(knitr)
+library(png)
+img2_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/2_proposed design.png"
+include_graphics(img2_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+advantages <- read_excel("D:\\awljiang\\blog\\_posts\\2021-02-13-dataviz-makeover-02\\data\\2_advantages.xlsx")  
+advantages_2 <- data.frame(advantages)
+
+kbl(advantages_2) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "50em") 
+
+```
+
+# 3.0 Data Visualisation Steps 
+
+## 3.1	Data Preparation 
+
+As the datasets consist of many variables and for this makeover, we are only using selective variables, hence follow Steps 1 to 6 to keep only those variables (reduce the size of the dataset for importing into Tableau later) and save out the dataset which will be used in the visualisation. 
+
+Step 1: Open a new Tableau window, click on 'Text file' and navigate to the data file. Select the first country file e.g. "australia.csv".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img311_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.1.png"
+include_graphics(img311_path)
+
+```
+
+Step 2: Right click "australia.csv" in the pane and select "Remove" as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img312_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.2.png"
+include_graphics(img312_path)
+
+```
+
+Step 3: Click and drag "New Union" into the pane as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img313_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.3.png"
+include_graphics(img313_path)
+
+```
+
+Step 4: Select and drag all the country.csv files into the "Union" pop-up window and click "OK".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img314_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.4.png"
+include_graphics(img314_path)
+
+```
+
+Step 5: Open a new Tableau worksheet and drag “Country”, “vac_1”, “vac2_1”, “vac2_2”, vac2_3”, “vac2_6”, “vac_3”, “gender”, “age”, “household_size”, “household_children”, “employment_status” to “Columns” and “RecordNo” to Rows. Right click “RecordNo” and change to “Count”.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img315_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.5.png"
+include_graphics(img315_path)
+
+```
+
+Step 6: Save out the dataset by clicking on “Analysis” tab, select “View Data” and thereafter select “Export All”. Save the dataset as “vaccine” to a folder. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img316_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.1.6.png"
+include_graphics(img316_path)
+
+```
+
+## 3.2	Tableau Works
+
+### 3.2.1	Import dataset and create additional variables.
+
+Step 1: Open a new Tableau window, click on “Text file” and open the “vaccine.csv” file save out earlier (Step 6 of 3.1).
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3211_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.1.png"
+include_graphics(img3211_path)
+
+```
+
+Step 2: Select the highlighted variables, click on the drop down list and select “Pivot”.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3212_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.2.png"
+include_graphics(img3212_path)
+
+```
+
+Step 3: Right click the drop down list and select “Aliases”. Edit the “Value (Alias)” column to as shown below and click “OK”.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3213_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.3.png"
+include_graphics(img3213_path)
+
+```
+
+Step 4: Rename the columns to as shown below.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3214_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.4.png"
+include_graphics(img3214_path)
+
+```
+
+Step 5: Split the column "Table Name" by clicking on the drop down list and select "Split". Rename the new column as “Country”.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3215_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.5.png"
+include_graphics(img3215_path)
+
+```
+
+Step 6: Click on the drop down list for “Country” and select “Aliases” and rename the countries to reflect Upper case for the first alphabet of the country name.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3216_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.6.png"
+include_graphics(img3216_path)
+
+```
+
+Step 7: Click on the drop down list for “Score” and select “Aliases” and rename the values as shown below.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3217_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.7.png"
+include_graphics(img3217_path)
+
+```
+
+Step 8: Click on the drop down list for “Score” and select “Create Calculated Field”. Input the following formula into the pop-up window.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3218_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.8.png"
+include_graphics(img3218_path)
+
+```
+
+Step 9: Click on the drop down list for “No. of Records” and select “Create Calculated Field”. Input the following formula into the pop-up window.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3219_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.9.png"
+include_graphics(img3219_path)
+
+```
+
+Step 10: Click on the drop down list for “ Age” and select “Create Group”. Create the groups as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32110_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.10.png"
+include_graphics(img32110_path)
+
+```
+
+Step 11: Click on the drop down list for “ Household Size” and select “Create Group”. Create the groups as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32111_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.11.png"
+include_graphics(img32111_path)
+
+```
+
+Step 12: Click on the drop down list for “ Household Children” and select “Create Group”. Create the groups as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32112_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.12.png"
+include_graphics(img32112_path)
+
+```
+
+Step 13: Click on the drop down list for “ Employment Status” and select “Create Group”. Create the groups as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32113_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.1.13.png"
+include_graphics(img32113_path)
+
+```
+
+### 3.2.2	Create visualisation for sentiments on vaccine.
+
+Step 1: Open a new Tableau workbook. Create calculated field "Total Count" by clicking on "Analysis" on the ribbon tab and select "Create Calculated Field". Input the formula shown below. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3221_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.1.png"
+include_graphics(img3221_path)
+
+```
+
+Step 2: Create more calculated fields. Click on "Analysis" on the ribbon tab and select "Create Calculated Field", input the formula shown below. Repeat the steps to create the other calculated fields shown below.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3222_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.2.png"
+include_graphics(img3222_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3223_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.3.png"
+include_graphics(img3223_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3224_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.4.png"
+include_graphics(img3224_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3225_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.5.png"
+include_graphics(img3225_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3226_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.6.png"
+include_graphics(img3226_path)
+
+```
+
+Step 3: Drag “Gantt Percent” into “Columns”, “Assessment Item” into “Rows” and “Score” into the colours Marks card as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3227_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.7.png"
+include_graphics(img3227_path)
+
+```
+
+Step 4: Click on “Gantt Percent”,  click on “Compute Using” and select “Score”. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3228_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.8.png"
+include_graphics(img3228_path)
+
+```
+
+Step 5: Under the Marks card, drag “Percentage” into the “Size” and “Score” into “Detail”. Select “Gantt Bar” from the drop down list.
+
+```{r, echo=FALSE, message=FALSE, out.width="40%", out.height="40%"}
+library(knitr)
+library(png)
+img3229_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.9.png"
+include_graphics(img3229_path)
+
+```
+
+Step 6: In the "Score" card, click on "NA" and select "Exclude".
+
+```{r, echo=FALSE, message=FALSE, out.width="60%", out.height="60%"}
+library(knitr)
+library(png)
+img32210_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.10.png"
+include_graphics(img32210_path)
+
+```
+
+Step 7: Shift the sequence of the Score to reflect the following.
+
+```{r, echo=FALSE, message=FALSE, out.width="40%", out.height="40%"}
+library(knitr)
+library(png)
+img32211_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.11.png"
+include_graphics(img32211_path)
+
+```
+
+Step 8: Double click on the yellow box and change the colour to as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32212_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.12.png"
+include_graphics(img32212_path)
+
+```
+
+Step 9: Drag these variables (in red boxes) into "Filters" as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img32213_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.13.png"
+include_graphics(img32213_path)
+
+```
+
+Step 10: Click the drop down list and select “Show Filter”. Repeat to show all the filters.
+
+```{r, echo=FALSE, message=FALSE, out.width="40%", out.height="40%"}
+library(knitr)
+library(png)
+img32214_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.14.png"
+include_graphics(img32214_path)
+
+```
+
+Step 11: To create a sorting option in the visualisation, click on the drop down list, and select “Create Parameter”. Input the values as shown below.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img32215_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.15.png"
+include_graphics(img32215_path)
+
+```
+
+Step 12: Click on "Analysis" on the ribbon tab and select "Create Calculated Field", input the formula shown below.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img32216_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.16.png"
+include_graphics(img32216_path)
+
+```
+
+Step 13: Click “Assessment Item”, select “Sort”. Select the options as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img32217_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.17.png"
+include_graphics(img32217_path)
+
+```
+
+Step 14: In the Marks card, click on “Tooltip”. Remove the first two lines from the tooltip (in red box).
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img32218_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.18.png"
+include_graphics(img32218_path)
+
+```
+
+Step 15: Click on “Assessment Item”, select “Edit Filter”. Unselect “Worried about getting Covid-19” and click “OK”.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img32219_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.2.19.png"
+include_graphics(img32219_path)
+
+```
+
+Step 16: Save Tableau worksheet as "Gantt Chart".
+
+### 3.2.3	Create visualisation for "Worried about getting Covid-19".
+
+Step 1: Open a new Tableau worksheet. Drag “Assessment Item”, “Score”, “Measure Names” into “Columns. Drag “Measure Values” into “Rows” and under “Measure Values” card, keep only “Percentage”. In the Marks card, drag “Score” into “Color”, “Percentage” into “Label” and “Score” into “Detail”. Drag “Score” (unselect “NA”), “Country”, “Gender”, “Age (group)”, “Employment Status (group)”, “ Household Size (group)”, “Household Children (group)” and “Measure Names” into the Filters.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3231_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.3.1.png"
+include_graphics(img3231_path)
+
+```
+
+Step 2: Click on the axis and hide the header by unselecting “Show Header”. Repeat for all the headers such that only the bar chart is left as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="80%", out.height="80%"}
+library(knitr)
+library(png)
+img3232_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.3.2.png"
+include_graphics(img3232_path)
+
+```
+
+Step 3: Save Tableau worksheet as "Bar Chart".
+
+### 3.2.4	Create Map visualisation
+
+Step 1: Open a new Tableau worksheet. Drag "Country" to "Columns". Click on “Show Me” and select “Map”.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3241_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.4.1.png"
+include_graphics(img3241_path)
+
+```
+
+Step 2: In the Marks card, drag “Country” into “Label” and “Country” into “Detail”. Drag “Country”, “Gender”, “Age (group)”, “Employment Status (group)”, “ Household Size (group)” and “Household Children (group)” into the Filters.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3242_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.4.2.png"
+include_graphics(img3242_path)
+
+```
+
+Step 3: (To include the bar chart into the tooltips) In the Marks card, click on “Tooltip”. Click on “Insert” and select “Sheets”, followed by “Bar Chart”.
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="120%", out.height="120%"}
+library(knitr)
+library(png)
+img3243_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/3.2.4.3.png"
+include_graphics(img3243_path)
+
+```
+
+Step 4: Save Tableau worksheet as "Map".
+
+# 4.0 Final Data Visualisation Output
+
+### Data Visualisation Link (Tableau Online):
+https://public.tableau.com/views/SentimentsonCovid-19DataVizMakeover_02/Dashboard?:language=en&:display_count=y&publish=yes&:origin=viz_share_link
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="200%", out.height="200%"}
+library(knitr)
+library(png)
+img4_path <- "/awljiang/blog/_posts/2021-02-13-dataviz-makeover-02/data/4.1_final design.png"
+include_graphics(img4_path)
+
+```
+
+### Major Insights
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+insights <- read_excel("D:\\awljiang\\blog\\_posts\\2021-02-13-dataviz-makeover-02\\data\\4_insights.xlsx")  
+insights_2 <- data.frame(insights)
+
+kbl(insights_2) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "50em") 
+
+```
