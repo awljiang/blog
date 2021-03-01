@@ -111,7 +111,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["DataViz Makeover 02"]},{"type":"character","attributes":{},"value":["Objective: To create an alternative visualisation to understand the willingness of the public on Covid-19 vaccination. The data used was obtained from Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub hosted at Github (https://github.com/YouGov-Data/covid-19-tracker). The research mainly utilised survey conducted on January 2021."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Angeline Jiang"]},{"type":"character","attributes":{},"value":["www.linkedin.com/in/angeline-jiang"]}]}]},{"type":"character","attributes":{},"value":["02-13-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["DataViz Makeover 02"]},{"type":"character","attributes":{},"value":["Objective: To create an alternative visualisation to understand the willingness of the public on Covid-19 vaccination. The data used was obtained from Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub hosted at Github (https://github.com/YouGov-Data/covid-19-tracker). The research mainly utilised survey conducted on January 2021."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Angeline Jiang"]},{"type":"character","attributes":{},"value":["www.linkedin.com/in/angeline-jiang"]}]}]},{"type":"character","attributes":{},"value":["02-13-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2040,7 +2040,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6.4/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.7/header-attrs.js"></script>
   <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -2101,6 +2101,40 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#critiques-and-suggestions-for-current-visualisation">1.0 Critiques and Suggestions for Current Visualisation</a>
+<ul>
+<li><a href="#clarity">1.1 Clarity</a></li>
+<li><a href="#aesthetics">1.2 Aesthetics</a></li>
+</ul></li>
+<li><a href="#proposed-design">2.0 Proposed Design</a></li>
+<li><a href="#data-visualisation-steps">3.0 Data Visualisation Steps</a>
+<ul>
+<li><a href="#data-preparation">3.1 Data Preparation</a></li>
+<li><a href="#tableau-works">3.2 Tableau Works</a>
+<ul>
+<li><a href="#import-dataset-and-create-additional-variables.">3.2.1 Import dataset and create additional variables.</a></li>
+<li><a href="#create-gantt-chart">3.2.2 Create Gantt Chart</a></li>
+<li><a href="#create-proportion-chart">3.2.3 Create Proportion Chart</a></li>
+<li><a href="#create-dashboard">3.2.4 Create Dashboard</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#final-data-visualisation-output">4.0 Final Data Visualisation Output</a>
+<ul>
+<li><a href="#data-visualisation-link-tableau-online">Data Visualisation Link (Tableau Online):</a></li>
+<li><a href="#major-insights">4.1 Major Insights</a>
+<ul>
+<li><a href="#observation-1">Observation 1:</a></li>
+<li><a href="#observation-2">Observation 2:</a></li>
+<li><a href="#observation-3">Observation 3:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+</div>
 <h1 id="critiques-and-suggestions-for-current-visualisation">1.0 Critiques and Suggestions for Current Visualisation</h1>
 <div class="layout-chunk" data-layout="l-body-outset">
 <p><img src="data/1_current%20visualisation.png" width="150%" height="150%" /></p>
@@ -2257,7 +2291,7 @@ Include the source at the bottom of the charts.
 </div>
 <h1 id="proposed-design">2.0 Proposed Design</h1>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/2_proposed%20design.png" width="120%" height="150%" /></p>
+<p><img src="data/2_proposed%20design.PNG" width="120%" height="150%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <table class="table table-striped" style="width: auto !important; ">
@@ -2344,264 +2378,264 @@ Source of data is indicated and users can easily know where the data is from and
 <p>As the datasets consist of many variables and for this makeover, we are only using selective variables, hence follow Steps 1 to 6 to keep only those variables (reduce the size of the dataset for importing into Tableau later) and save out the dataset which will be used in the visualisation.</p>
 <p>Step 1: Open a new Tableau window, click on ‘Text file’ and navigate to the data file. Select the first country file e.g. “australia.csv”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.1.1.png" width="100%" height="100%" /></p>
+<p><img src="data/3.1.1.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 2: Right click “australia.csv” in the pane and select “Remove” as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.1.2.png" width="100%" height="100%" /></p>
+<p><img src="data/3.1.2.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 3: Click and drag “New Union” into the pane as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.1.3.png" width="100%" height="100%" /></p>
+<p><img src="data/3.1.3.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 4: Select and drag all the country.csv files into the “Union” pop-up window and click “OK”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.1.4.png" width="100%" height="100%" /></p>
+<p><img src="data/3.1.4.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 5: Open a new Tableau worksheet and drag “Country”, “vac_1”, “vac2_1”, “vac2_2”, vac2_3”, “vac2_6”, “vac_3”, “gender”, “age”, “household_size”, “household_children”, “employment_status” to “Columns” and “RecordNo” to Rows. Right click “RecordNo” and change to “Count”.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.1.5.png" width="120%" height="120%" /></p>
+<p><img src="data/3.1.5.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 6: Save out the dataset by clicking on “Analysis” tab, select “View Data” and thereafter select “Export All”. Save the dataset as “vaccine” to a folder.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.1.6.png" width="120%" height="120%" /></p>
+<p><img src="data/3.1.6.PNG" width="120%" height="120%" /></p>
 </div>
 <h2 id="tableau-works">3.2 Tableau Works</h2>
 <h3 id="import-dataset-and-create-additional-variables.">3.2.1 Import dataset and create additional variables.</h3>
 <p>Step 1: Open a new Tableau window, click on “Text file” and open the “vaccine.csv” file save out earlier (Step 6 of 3.1).</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.1.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.1.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 2: Select the highlighted variables, click on the drop down list and select “Pivot”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.2.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.2.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 3: Right click the drop down list and select “Aliases”. Edit the “Value (Alias)” column to as shown below and click “OK”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.3.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.3.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 4: Rename the columns to as shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.1.4.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.1.4.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 5: Split the column “Table Name” by clicking on the drop down list and select “Split”. Rename the new column as “Country”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.5.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.5.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 6: Click on the drop down list for “Country” and select “Aliases” and rename the countries to reflect Upper case for the first alphabet of the country name.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.1.6.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.1.6.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 7: Click on the drop down list for “Score” and select “Aliases” and rename the values as shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.1.7.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.1.7.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 8: Click on the drop down list for “Score” and select “Create Calculated Field”. Input the following formula into the pop-up window.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.1.8.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.1.8.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 9: Click on the drop down list for “No. of Records” and select “Create Calculated Field”. Input the following formula into the pop-up window.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.1.9.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.1.9.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 10: Click on the drop down list for “ Age” and select “Create Group”. Create the groups as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.10.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.10.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 11: Click on the drop down list for “ Household Size” and select “Create Group”. Create the groups as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.11.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.11.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 12: Click on the drop down list for “ Household Children” and select “Create Group”. Create the groups as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.12.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.12.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 13: Click on the drop down list for “ Employment Status” and select “Create Group”. Create the groups as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.1.13.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.1.13.PNG" width="100%" height="100%" /></p>
 </div>
 <h3 id="create-gantt-chart">3.2.2 Create Gantt Chart</h3>
 <p>Step 1: Open a new Tableau workbook. Create calculated field “Total Count” by clicking on “Analysis” on the ribbon tab and select “Create Calculated Field”. Input the formula shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.2.1.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.2.1.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 2: Create more calculated fields. Click on “Analysis” on the ribbon tab and select “Create Calculated Field”, input the formula shown below. Repeat the steps to create the other calculated fields shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.2.2.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.2.2.PNG" width="120%" height="120%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.3.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.3.PNG" width="80%" height="80%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.4.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.4.PNG" width="80%" height="80%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.5.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.5.PNG" width="80%" height="80%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.6.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.6.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 3: Drag “Gantt Percent” into “Columns”, “Country” into “Rows” and “Score” into the colours Marks card as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.7.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.7.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 4: Click on “Gantt Percent”, click on “Compute Using” and select “Score”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.8.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.8.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 5: Under the Marks card, drag “Percentage” into the “Size” and “Score” into “Detail”. Select “Gantt Bar” from the drop down list.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.9.png" width="40%" height="40%" /></p>
+<p><img src="data/3.2.2.9.PNG" width="40%" height="40%" /></p>
 </div>
 <p>Step 6: In the “Score” card, click on “NA” and select “Exclude”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.10.png" width="60%" height="60%" /></p>
+<p><img src="data/3.2.2.10.PNG" width="60%" height="60%" /></p>
 </div>
 <p>Step 7: Shift the sequence of the Score to reflect the following.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.11.png" width="40%" height="40%" /></p>
+<p><img src="data/3.2.2.11.PNG" width="40%" height="40%" /></p>
 </div>
 <p>Step 8: Double click on the yellow box and change the colour to as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.12.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.2.12.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 9: Drag these variables (in red boxes) into “Filters” as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.13.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.2.13.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 10: Click the drop down list and select “Show Filter”. Repeat to show all the filters.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.14.png" width="40%" height="40%" /></p>
+<p><img src="data/3.2.2.14.PNG" width="40%" height="40%" /></p>
 </div>
 <p>Step 11: To create a sorting option in the visualisation, click on the drop down list, and select “Create Parameter”. Input the values as shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.2.15.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.2.15.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 12: Click on “Analysis” on the ribbon tab and select “Create Calculated Field”, input the formula shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.2.16.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.2.16.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 13: Click “Country”, select “Sort”. Select the options as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.2.17.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.2.17.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 14: In the Marks card, click on “Tooltip”. Remove the first line from the tooltip (in red box).</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.2.18.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.2.18.PNG" width="120%" height="120%" /></p>
 </div>
 <h3 id="create-proportion-chart">3.2.3 Create Proportion Chart</h3>
 <p>Step 1: Create more calculated fields. Click on “Analysis” on the ribbon tab and select “Create Calculated Field”, input the formula shown below. Repeat the steps to create the other calculated fields shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.1.png" width="100%" height="100%" /><img src="data/3.2.3.2.png" width="100%" height="100%" /><img src="data/3.2.3.3.png" width="100%" height="100%" /><img src="data/3.2.3.4.png" width="100%" height="100%" /><img src="data/3.2.3.5.png" width="100%" height="100%" /><img src="data/3.2.3.6.png" width="100%" height="100%" /><img src="data/3.2.3.7.png" width="100%" height="100%" /><img src="data/3.2.3.8.png" width="100%" height="100%" /><img src="data/3.2.3.9.png" width="100%" height="100%" /><img src="data/3.2.3.10.png" width="100%" height="100%" /><img src="data/3.2.3.11.png" width="100%" height="100%" /><img src="data/3.2.3.12.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.1.PNG" width="100%" height="100%" /><img src="data/3.2.3.2.PNG" width="100%" height="100%" /><img src="data/3.2.3.3.PNG" width="100%" height="100%" /><img src="data/3.2.3.4.PNG" width="100%" height="100%" /><img src="data/3.2.3.5.PNG" width="100%" height="100%" /><img src="data/3.2.3.6.PNG" width="100%" height="100%" /><img src="data/3.2.3.7.PNG" width="100%" height="100%" /><img src="data/3.2.3.8.PNG" width="100%" height="100%" /><img src="data/3.2.3.9.PNG" width="100%" height="100%" /><img src="data/3.2.3.10.PNG" width="100%" height="100%" /><img src="data/3.2.3.11.PNG" width="100%" height="100%" /><img src="data/3.2.3.12.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 2: To create a dynamic visualisation of the proportion chart (choose which sentiment to filter and at which Confidence interval), click on the drop down list, and select “Create Parameter”. Input the values as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.13.png" width="100%" height="100%" /><img src="data/3.2.3.14.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.13.PNG" width="100%" height="100%" /><img src="data/3.2.3.14.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 3: Create more calculated fields. Click on “Analysis” on the ribbon tab and select “Create Calculated Field”, input the formula shown below. Repeat the steps to create the other calculated fields shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.15.png" width="100%" height="100%" /><img src="data/3.2.3.16.png" width="100%" height="100%" /><img src="data/3.2.3.17.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.15.PNG" width="100%" height="100%" /><img src="data/3.2.3.16.PNG" width="100%" height="100%" /><img src="data/3.2.3.17.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 4: Drag “Choose_Prop” into “Columns”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.18.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.18.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 5: Pull “measure value” to the top of the chart (along the top of x-axis). In the Measure Values card, keep only “AGG(Choose Lower Limit)” and “AGG(Choose Upper Limit)”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.19.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.19.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 6: Click on the x-axis and select “Synchronize Axis”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.20.png" width="50%" height="50%" /></p>
+<p><img src="data/3.2.3.20.PNG" width="50%" height="50%" /></p>
 </div>
 <p>Step 7: In the Marks card, change “Measure value” to “Line”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.21.png" width="20%" height="20%" /></p>
+<p><img src="data/3.2.3.21.PNG" width="20%" height="20%" /></p>
 </div>
 <p>Step 8: Drag “Measure Names” to “Path”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.22.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.3.22.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 9: Remove “Measure Names” from “Detail”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.23.png" width="30%" height="30%" /></p>
+<p><img src="data/3.2.3.23.PNG" width="30%" height="30%" /></p>
 </div>
 <p>Step 10: Change the sequence of “AGG(Choose_Prop)” and “Measure Values”, to look like below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.24.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.24.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 11: Show parameters by clicking on the parameters and select “Show Parameter”. Do the same for all the parameters.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.25.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.3.25.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 12: To synchronize the colour of the proportion chart with the Gantt chart, drag “Choose Prop” into the Colour Marks card under “AGG(Choose Prop)” as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.26.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.3.26.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 13: In the “Choose Prop” paramter, select “Strongly Agree_Prop”. Click on “Colour”, Click on the colour box and input the colour code as shown. Repeat the same steps to sync the colours for “Agree_Prop”, “Neutral_Prop”, “Disagree_Prop” and “Strongly Disagree_Prop” as shown below.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/3.2.3.27.png" width="120%" height="120%" /><img src="data/3.2.3.28.png" width="120%" height="120%" /><img src="data/3.2.3.29.png" width="120%" height="120%" /><img src="data/3.2.3.30.png" width="120%" height="120%" /><img src="data/3.2.3.31.png" width="120%" height="120%" /></p>
+<p><img src="data/3.2.3.27.PNG" width="120%" height="120%" /><img src="data/3.2.3.28.PNG" width="120%" height="120%" /><img src="data/3.2.3.29.PNG" width="120%" height="120%" /><img src="data/3.2.3.30.PNG" width="120%" height="120%" /><img src="data/3.2.3.31.PNG" width="120%" height="120%" /></p>
 </div>
 <p>Step 14: Drag “Choose Prop” into the Colour Marks card under “Measure Values”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.32.png" width="80%" height="80%" /></p>
+<p><img src="data/3.2.3.32.PNG" width="80%" height="80%" /></p>
 </div>
 <p>Step 15: Click on the header and unselect “Show Header” to hide the header.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.33.png" width="70%" height="70%" /></p>
+<p><img src="data/3.2.3.33.PNG" width="70%" height="70%" /></p>
 </div>
 <p>Step 16: Rename the axis by clicking on the axis and select “Edit Axis”. Change the Axis Title to “Proportion Percent”.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.34.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.34.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 17: Add annotation by clicking on the chart, select “Annotate” and “Area”. In the pop-up window, click “Insert” and select “Parameters.Choose Prop”. Shift the annotation area to be just slightly above the x-axis as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.3.35.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.3.35.PNG" width="100%" height="100%" /></p>
 </div>
 <h3 id="create-dashboard">3.2.4 Create Dashboard</h3>
 <p>Step 1: Open a new Dashboard tab, drag the worksheet into the pane.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.4.1.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.4.1.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 2: Drag “Text” to above the chart and input the title for the chart as shown.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.4.2.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.4.2.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 3: Click “Assessment Item” and drag it to be above the chart.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.4.3.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.4.3.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 4: Drag “Text” to above the chart and input the data source as shown.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.4.4.png" width="100%" height="100%" /></p>
+<p><img src="data/3.2.4.4.PNG" width="100%" height="100%" /></p>
 </div>
 <p>Step 5: Click and shift the filters such that it shows the following layout.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="data/3.2.4.5.png" width="20%" height="20%" /></p>
+<p><img src="data/3.2.4.5.PNG" width="20%" height="20%" /></p>
 </div>
 <h1 id="final-data-visualisation-output">4.0 Final Data Visualisation Output</h1>
 <h3 id="data-visualisation-link-tableau-online">Data Visualisation Link (Tableau Online):</h3>
 <p><a href="https://public.tableau.com/views/DataVizMakeoverSentimentsonCovid-19vaccination/Dashboard1" class="uri">https://public.tableau.com/views/DataVizMakeoverSentimentsonCovid-19vaccination/Dashboard1</a>?:language=en&amp;:display_count=y&amp;publish=yes&amp;:origin=viz_share_link</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/4.1_final%20design.png" width="300%" height="300%" /></p>
+<p><img src="data/4.1_final%20design.PNG" width="300%" height="300%" /></p>
 </div>
 <h2 id="major-insights">4.1 Major Insights</h2>
 <h3 id="observation-1">Observation 1:</h3>
 <p>Compared to other countries, Spain (Green box) had the highest proportion of respondents saying that they strongly agreed that they are worried about getting Covid-19. Netherlands (Orange box) had the lowest proportion of strongly agreed.</p>
 <p>However, when comes to the question on whether they will regret not getting vaccinated when vaccine is available, Spain had lower proportion of respondents saying that they strongly agreed that they will regret compared to Netherlands.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/4.1.1.png" width="300%" height="300%" /><img src="data/4.1.2.png" width="300%" height="300%" /></p>
+<p><img src="data/4.1.1.PNG" width="300%" height="300%" /><img src="data/4.1.2.PNG" width="300%" height="300%" /></p>
 </div>
 <h3 id="observation-2">Observation 2:</h3>
 <p>Denmark (Green box) had the highest proportion of respondents who strongly agreed that they believe their government will provide them with effective Covid-19 vaccine, which also translates to lower proportion of respondents who strongly agreed that they’re worried about the side-effects of the vaccine.</p>
 <p>However, this is unlike Canada (Orange box) which ranked among the top few countries with high proportion of respondents who strongly agreed that they believe their government will provide them with effective Covid-19 vaccine, yet, Canada is also among the top few countries where high proportion of respondents strongly agreed that they’re worried about the side-effects of the vaccine.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/4.1.3.png" width="300%" height="300%" /><img src="data/4.1.4.png" width="300%" height="300%" /></p>
+<p><img src="data/4.1.3.PNG" width="300%" height="300%" /><img src="data/4.1.4.PNG" width="300%" height="300%" /></p>
 </div>
 <h3 id="observation-3">Observation 3:</h3>
 <p>Although a high proportion of respondents in Japan strongly agreed that they’re worried about getting Covid-19, a low proportion of them strongly agreed that they will go for vaccination when the vaccine is made available to them either this week or a year from now.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<p><img src="data/4.1.5.png" width="300%" height="300%" /><img src="data/4.1.6.png" width="300%" height="300%" /><img src="data/4.1.7.png" width="300%" height="300%" /></p>
+<p><img src="data/4.1.5.PNG" width="300%" height="300%" /><img src="data/4.1.6.PNG" width="300%" height="300%" /><img src="data/4.1.7.PNG" width="300%" height="300%" /></p>
 </div>
 <p>Hope you enjoyed reading :)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
