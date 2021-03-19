@@ -1,0 +1,856 @@
+---
+title: "DataViz Makeover 03"
+description: |
+  Objective: To critic a given visualisation and suggest alternative interactive data visualisation to improve the design. For this makeover, data from The Armed Conflict Location & Event Data Project (ACLED) will be used and the focus will be on South-east Asia data set from 2015 to 2020.
+author:
+  - name: Angeline Jiang
+    url: www.linkedin.com/in/angeline-jiang
+date: 03-13-2021
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 1.0 Critiques and Suggestions for Current Visualisation
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="150%", out.height="150%"}
+library(knitr)
+library(png)
+img11_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/1.1_current visualisation.png"
+include_graphics(img11_path)
+img12_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/1.2_current visualisation.png"
+include_graphics(img12_path)
+
+```
+
+## 1.1 Clarity
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+clarity <- read_excel("D:\\awljiang\\blog\\_posts\\2021-03-13-dataviz-makeover-03\\data\\1.1_clarity.xlsx")  
+clarity_2 <- data.frame(clarity)
+
+kbl(clarity_2) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "30em") %>% 
+  column_spec(3, border_right = T, width = "30em")
+
+```
+
+## 1.2 Aesthetics
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+aesthetics <- read_excel("D:\\awljiang\\blog\\_posts\\2021-03-13-dataviz-makeover-03\\data\\1.2_aesthetics.xlsx")  
+aesthetics_2 <- data.frame(aesthetics)
+
+kbl(aesthetics_2) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "30em") %>% 
+  column_spec(3, border_right = T, width = "30em")
+
+```
+
+## 1.3 Interactivity
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+interactivity <- read_excel("D:\\awljiang\\blog\\_posts\\2021-03-13-dataviz-makeover-03\\data\\1.3_interactivity.xlsx")  
+interactivity_2 <- data.frame(interactivity)
+
+kbl(interactivity_2) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "30em") %>% 
+  column_spec(3, border_right = T, width = "30em")
+
+```
+
+#  2.0 Proposed Design
+
+Following design shows the layout for the main dashboard which will be interactive.
+
+```{r, echo=FALSE, message=FALSE, out.width="120%", out.height="150%"}
+library(knitr)
+library(png)
+img21_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/2.1_proposed design.png"
+include_graphics(img21_path)
+
+```
+
+By selecting the "Analysis" filter, the dashboard will automatically update the map and trend line accordingly.
+
+```{r, echo=FALSE, message=FALSE, out.width="120%", out.height="150%"}
+library(knitr)
+library(png)
+img22_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/2.2_proposed design.png"
+include_graphics(img22_path)
+img23_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/2.3_proposed design.png"
+include_graphics(img23_path)
+img24_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/2.4_proposed design.png"
+include_graphics(img24_path)
+img25_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/2.5_proposed design.png"
+include_graphics(img25_path)
+
+```
+
+```{r, echo=FALSE, message=FALSE}
+library("readxl")
+library(kableExtra)
+
+advantages <- read_excel("D:\\awljiang\\blog\\_posts\\2021-03-13-dataviz-makeover-03\\data\\2_advantages.xlsx")  
+advantages_2 <- data.frame(advantages)
+
+kbl(advantages_2) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left") %>%
+  column_spec(1, bold = T, border_right = T) %>%
+  column_spec(2, border_right = T, width = "50em") 
+
+```
+
+# 3.0 Data Visualisation Steps (using Tableau)
+
+## 3.1	Data Preparation 
+
+Step 1: Open a new Tableau window, click on 'Microsoft Excel' and navigate to the data file.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img311_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.1.1.png"
+include_graphics(img311_path)
+
+```
+
+Step 2: Change the type for the "Year" variable by clicking on the "#" and select "Date".
+
+```{r, echo=FALSE, message=FALSE, out.width="70%", out.height="70%"}
+library(knitr)
+library(png)
+img312_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.1.2.png"
+include_graphics(img312_path)
+
+```
+
+Step 3: Scroll all the way to the back of the variable list, right click and select "Create Calculated Field" and input as shown below. (This variable will be used for counting the number of conflicts)
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img313_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.1.3.png"
+include_graphics(img313_path)
+
+```
+
+## 3.2	Map 1 - Number of Conflicts 
+
+Step 1: Open a new Tableau worksheet. Drag "Year" into the "Filters" card, select "Years" and click on the boxes for 2015 to 2020 (period of analysis). 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img321_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.1.png"
+include_graphics(img321_path)
+
+```
+
+Step 2: Drag the variables "Longitude" and "Latitude" to "Columns" and "Rows" respectively.Then drag "Conflict" into the "Colours" marks card, "Country" to the "Text" marks card. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img322_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.2.png"
+include_graphics(img322_path)
+
+```
+
+Step 3: Drag "Event Type" into the "Filters" card and check all the boxes as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img323_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.3.png"
+include_graphics(img323_path)
+
+```
+
+Step 4: Show the "Event Type" filter by clicking on the dropdown arrow and select "Show Filter". At the "Event Type" card, select "Single Value (list)". 
+
+```{r, echo=FALSE, message=FALSE, out.width="70%", out.height="70%"}
+library(knitr)
+library(png)
+img324_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.4.png"
+include_graphics(img324_path)
+
+```
+
+Step 5: To add the feature of automatically updating the map and trend line as per ananlysis selection, we will need to create a parameter to control the change. Click on the arrow and select "Create Parameter" and key the inputs as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img325_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.5.png"
+include_graphics(img325_path)
+
+```
+
+Step 6: Click on the "Analysis" tab, select "Create Calculated Field" and key the inputs as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img326_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.6.png"
+include_graphics(img326_path)
+
+```
+
+Step 7: Under "Parameters", click on "Choose Analysis" and select "Show Parameter". At the "Choose Analysis" card, select "No. of conflicts".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img327_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.7.png"
+include_graphics(img327_path)
+
+```
+
+Step 8: Drag "Chosen Analysis" into the "Filters" card and check the box as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img328_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.8.png"
+include_graphics(img328_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "No. of conflict".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img329_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.2.9.png"
+include_graphics(img329_path)
+
+```
+
+## 3.3	Map 2 - Location of Conflicts 
+
+Step 1: Right click on the worksheet created in previous step and select "Duplicate".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img331_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.1.png"
+include_graphics(img331_path)
+
+```
+
+Step 2: Update the Marks card by dragging "Event Type" into "Colours" and "Event Id Cnty" into the details. Remove "Country" from "Text".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img332_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.2.png"
+include_graphics(img332_path)
+
+```
+
+Step 3: Click on "Colour" and change the opacity and effects as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img333_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.3.png"
+include_graphics(img333_path)
+
+```
+
+Step 4: At the "Choose Analysis" card, select "Location of conflicts".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img334_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.4.png"
+include_graphics(img334_path)
+
+```
+
+Step 5: Under the "Filters" card, click on "Chosen Analysis" and ensure that the box is checked as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img335_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.5.png"
+include_graphics(img335_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "Location of conflict".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img336_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.3.6.png"
+include_graphics(img336_path)
+
+```
+
+## 3.4	Map 3 - Number of Fatalities 
+
+Step 1: Right click on the worksheet created in 3.2 and select "Duplicate".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img341_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.4.1.png"
+include_graphics(img341_path)
+
+```
+
+Step 2: Update the Marks card by dragging "Fatalities" into "Colours".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img342_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.4.2.png"
+include_graphics(img342_path)
+
+```
+
+Step 3: At the "Choose Analysis" card, select "No. of Fatalities".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img343_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.4.3.png"
+include_graphics(img343_path)
+
+```
+
+Step 4: Under the "Filters" card, click on "Chosen Analysis" and ensure that the box is checked as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img344_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.4.4.png"
+include_graphics(img344_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "No. of fatalities".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img345_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.4.5.png"
+include_graphics(img345_path)
+
+```
+
+## 3.5	Map 4 - Number of Fatalities per Conflict 
+
+Step 1: Right click on the worksheet created in 3.2 and select "Duplicate".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img351_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.1.png"
+include_graphics(img351_path)
+
+```
+
+Step 2: Click on "Analysis" tab, select "Create Calculated Field" and input as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img352_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.2.png"
+include_graphics(img352_path)
+
+```
+
+Step 3: Update the Marks card by dragging "Fatalities per conflict" into "Colours".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img353_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.3.png"
+include_graphics(img353_path)
+
+```
+
+Step 4: At the "Choose Analysis" card, select "No. of Fatalities Per Conflict".
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img354_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.4.png"
+include_graphics(img354_path)
+
+```
+
+Step 5: Under the "Filters" card, click on "Chosen Analysis" and ensure that the box is checked as shown below. Rename the worksheet.
+
+```{r, echo=FALSE, message=FALSE, out.width="50%", out.height="50%"}
+library(knitr)
+library(png)
+img355_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.5.png"
+include_graphics(img355_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "No. of fatalities per conflict".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img356_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.5.6.png"
+include_graphics(img356_path)
+
+```
+
+## 3.6	Trend Line 1 - Number of Conflicts over the years 
+
+Step 1: Open a new Tableau worksheet. Drag "Year" and "Conflict" to "COlumns" and "Rows" respectively. Drag "Year" (check on boxes 2015 to 2020) and "Event Type" (check on all the boxes) to the "Filters" card. Then drag "Event Type" to the "Colours" marks card and ensure that "Line" is being chosen. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img361_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.1.png"
+include_graphics(img361_path)
+
+```
+
+Step 2: Drag "Country" into the "Filters" marks card and check all the boxes as shown below. Click on the dropdown arrow and select "Show Filter".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img362_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.2.png"
+include_graphics(img362_path)
+
+```
+
+Step 3: At the "Country" card, select "Single value (list)".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img363_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.3.png"
+include_graphics(img363_path)
+
+```
+
+Step 4: Right click on the y-axis, select "Edit Axis" and update the title of the axis. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img364_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.4.png"
+include_graphics(img364_path)
+
+```
+
+Step 5: Similarly, add a reference line by right clicking on the y-axis and select "Add Reference Line". Update the reference line specifications as shown below. 
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img365_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.5.png"
+include_graphics(img365_path)
+
+```
+
+Step 6: Under "Parameters", click on "Choose Analysis" and select "Show Parameter". At the "Choose Analysis" card, select "No. of conflicts".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img366_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.6.png"
+include_graphics(img366_path)
+
+```
+
+Step 7: Drag "Chosen Analysis" into the "Filters" card and check the box as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img367_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.7.png"
+include_graphics(img367_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "Conflict trend".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img368_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.6.8.png"
+include_graphics(img368_path)
+
+```
+
+## 3.7	Trend Line 2 - Number of Fatalities over the years 
+
+Step 1: Right click on the worksheet created in 3.6 and select "Duplicate".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img371_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.1.png"
+include_graphics(img371_path)
+
+```
+
+Step 2: Update "Rows" by dragging "Fatalities" in as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="70%", out.height="70%"}
+library(knitr)
+library(png)
+img372_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.2.png"
+include_graphics(img372_path)
+
+```
+
+Step 3: Right click on the y-axis, select "Edit Axis" and update the title of the axis.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img373_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.3.png"
+include_graphics(img373_path)
+
+```
+
+Step 4: At the "Choose Analysis" card, select "No. of Fatalities".
+
+```{r, echo=FALSE, message=FALSE, out.width="60%", out.height="60%"}
+library(knitr)
+library(png)
+img374_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.4.png"
+include_graphics(img374_path)
+
+```
+
+Step 5: Under the "Filters" card, click on "Chosen Analysis" and ensure that the box is checked as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="60%", out.height="60%"}
+library(knitr)
+library(png)
+img375_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.5.png"
+include_graphics(img375_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "Fatalities trend".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img376_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.7.6.png"
+include_graphics(img376_path)
+
+```
+
+## 3.8	Trend Line 3 - Number of Fatalities per Conflict over the years 
+
+Step 1: Right click on the worksheet created in 3.6 and select "Duplicate".
+
+```{r, echo=FALSE, message=FALSE, out.width="30%", out.height="30%"}
+library(knitr)
+library(png)
+img381_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.1.png"
+include_graphics(img381_path)
+
+```
+
+Step 2: Update "Rows" by dragging "Fatalities per conflict" in as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="70%", out.height="70%"}
+library(knitr)
+library(png)
+img382_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.2.png"
+include_graphics(img382_path)
+
+```
+
+Step 3: Right click on the y-axis, select "Edit Axis" and update the title of the axis.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img383_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.3.png"
+include_graphics(img383_path)
+
+```
+
+Step 4: At the "Choose Analysis" card, select "No. of Fatalities per conflict".
+
+```{r, echo=FALSE, message=FALSE, out.width="60%", out.height="60%"}
+library(knitr)
+library(png)
+img384_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.4.png"
+include_graphics(img384_path)
+
+```
+
+Step 5: Under the "Filters" card, click on "Chosen Analysis" and ensure that the box is checked as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="60%", out.height="60%"}
+library(knitr)
+library(png)
+img385_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.5.png"
+include_graphics(img385_path)
+
+```
+
+Final layout of the worksheet is as follow. Rename worksheet as "Fatalities per conflict trend".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img386_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.8.6.png"
+include_graphics(img386_path)
+
+```
+
+## 3.9	Creating Dashboard
+
+Step 1: Open a new Tableau dashboard. Drag a vertical tile into the space as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img391_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.1.png"
+include_graphics(img391_path)
+
+```
+
+Step 2: Drag the "Conflict trend" sheet into the space, and hide the title.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img392_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.2.png"
+include_graphics(img392_path)
+
+```
+
+Step 3: Drag the "Choose Analysis" filter to be above the chart as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img393_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.3.png"
+include_graphics(img393_path)
+
+```
+
+Step 4: Drag the "Fatalities trend" sheet below the chart as shown below, and hide the title.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img394_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.4.png"
+include_graphics(img394_path)
+
+```
+
+Step 5: Repeat step 4 for "Fatalities per conflict trend" sheet.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img395_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.5.png"
+include_graphics(img395_path)
+
+```
+
+Step 6: Drag a vertical tile into the space as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img396_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.6.png"
+include_graphics(img396_path)
+
+```
+
+Step 7: Drag the "No. of conflicts" sheet into the space as shown below, and hide the title.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img397_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.7.png"
+include_graphics(img397_path)
+
+```
+
+Step 8: Drag the "Conflicts by location" sheet below the chart as shown below, and hide the title.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img398_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.8.png"
+include_graphics(img398_path)
+
+```
+
+Step 9: Repeat step 8 for "No. of fatalities" sheet.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img399_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.9.png"
+include_graphics(img399_path)
+
+```
+
+Step 10: Repeat step 9 for "No. of fatalities per conflict" sheet.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3910_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.10.png"
+include_graphics(img3910_path)
+
+```
+
+Step 11: Drag a text box and place it at the top of the dashboard, key the title of the dashboard as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3911_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.11.png"
+include_graphics(img3911_path)
+
+```
+
+Step 12: Click on "Event Type" and select "Single value (dropdown)". Click on the dropdown arrow again, click on "Apply to Worksheets" and select "All Using This Data Source". Repeat step 12 for "Country".
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3912_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.12.png"
+include_graphics(img3912_path)
+
+```
+
+Step 13: Drag "Event Type" and "Country" such that the layout of the dashboard looks as shown below.
+
+```{r, echo=FALSE, message=FALSE, out.width="100%", out.height="100%"}
+library(knitr)
+library(png)
+img3913_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/3.9.13.png"
+include_graphics(img3913_path)
+
+```
+
+See Section 4.0 for final dashboard :)
+
+# 4.0 Final Data Visualisation Output
+
+## Data Visualisation Link (Tableau Online)
+
+https://public.tableau.com/views/ArmedConflictinSouthEastAsia2015-2020/Dashboard?:language=en&:display_count=y&publish=yes&:origin=viz_share_link
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img4_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1_final design.png"
+include_graphics(img4_path)
+
+```
+
+## 4.1 Major Insights
+
+### Observation 1: 
+
+Filtering on "No. of conflicts", we're able to see that Philippines has the most number of conflicts compared to other SouthEast Asia countries in 2015-2020. To identify the contributing event, we further filter by "Philippines". The plot in the second picture showed that the most common conflict is "Violence against civilians" and it was generally a decreasing trend from 2015 to 2020. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img411_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.1.png"
+include_graphics(img411_path)
+
+img412_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.2.png"
+include_graphics(img412_path)
+
+```
+
+### Observation 2: 
+
+To identify if a particular location has higher tendency of a particular type of conflict, we filter on "Location of Conflicts". Thereafter, we toggle and select the different event type of interest. Here, by filtering on "Battles" and "Explosions/Remote violence", we can easily see that an area in Philippines has more battles compared to explosions/remote violence. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img413_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.3.png"
+include_graphics(img413_path)
+
+```
+
+### Observation 3: 
+
+Number of protests increased from 2015 to 2020, the increment was also higher than other event types and above the average. Nonetheless, as shown in the second picture, the average fatalities per conflict (protests) remains below the average. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img414_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.4.png"
+include_graphics(img414_path)
+
+img415_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.5.png"
+include_graphics(img415_path)
+
+```
+
+### Observation 4: 
+
+Filtering on "No. of conflicts" and "No. of Fatalities", we may unknowingly conclude that there isn't much concern in Laos as there's low number of conflicts and fatalities from the conflicts. However, if one were to filter on "No. of fatalities per conflict", the number of fatalities per conflict in Laos (0.60) is higher than the average of 0.51 in SouthEast Asia during 2015 to 2020.  
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img416_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.6.png"
+include_graphics(img416_path)
+
+img417_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.7.png"
+include_graphics(img417_path)
+
+```
+
+### Observation 5: 
+
+Compared to other SouthEast Asia countries, Thailand had a sharp increase in the number of protests from 2019 to 2020. Nonetheless, the fatality remained at zero. 
+
+```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
+library(knitr)
+library(png)
+img418_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.8.png"
+include_graphics(img418_path)
+
+img419_path <- "/awljiang/blog/_posts/2021-03-13-dataviz-makeover-03/data/4.1.9.png"
+include_graphics(img419_path)
+
+```
+
+Hope you enjoyed reading :)

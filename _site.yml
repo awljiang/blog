@@ -1,5 +1,5 @@
 name: "blog"
-title: "IDEA"
+title: "My DataViz Journey"
 description: |
   IDEA
 output_dir: "_site"
@@ -7,10 +7,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "DataViz Makeover"
-      href: dataviz.html
     - text: "Visual Analytics Project"
-      href: vap.html
+      href: https://greenhouseemission.netlify.app/
     - text: "About"
       href: about.html
 output: distill::distill_article

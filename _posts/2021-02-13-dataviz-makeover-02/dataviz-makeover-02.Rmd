@@ -741,7 +741,7 @@ include_graphics(img3245_path)
 
 # 4.0 Final Data Visualisation Output
 
-### Data Visualisation Link (Tableau Online):
+### Data Visualisation Link (Tableau Online)
 https://public.tableau.com/views/DataVizMakeoverSentimentsonCovid-19vaccination/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link
 
 ```{r, echo=FALSE, message=FALSE, layout="l-body-outset", out.width="300%", out.height="300%"}
@@ -754,7 +754,7 @@ include_graphics(img4_path)
 
 ## 4.1 Major Insights
 
-### Observation 1: 
+### Observation 1 
 
 Compared to other countries, Spain (Green box) had the highest proportion of respondents saying that they strongly agreed that they are worried about getting Covid-19. Netherlands (Orange box) had the lowest proportion of strongly agreed. 
 
@@ -771,7 +771,7 @@ include_graphics(img412_path)
 
 ```
 
-### Observation 2: 
+### Observation 2
 
 Denmark (Green box) had the highest proportion of respondents who strongly agreed that they believe their government will provide them with effective Covid-19 vaccine, which also translates to lower proportion of respondents who strongly agreed that they're worried about the side-effects of the vaccine. 
 
@@ -788,7 +788,7 @@ include_graphics(img414_path)
 
 ```
 
-### Observation 3: 
+### Observation 3
 
 Although a high proportion of respondents in Japan strongly agreed that they're worried about getting Covid-19, a low proportion of them strongly agreed that they will go for vaccination when the vaccine is made available to them either this week or a year from now. 
 

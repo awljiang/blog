@@ -8,6 +8,8 @@ author:
 date: 01-25-2021
 output:
   distill::distill_article:
+    toc: true
+    toc_depth: 3
     self_contained: false
 ---
 
@@ -26,7 +28,7 @@ include_graphics(img1_path)
 
 ```
 
-### 1.1 Clarity
+## 1.1 Clarity
 
 ```{r, echo=FALSE, message=FALSE}
 library("readxl")
@@ -43,7 +45,7 @@ kbl(clarity_2) %>%
 
 ```
 
-### 1.2 Aesthetics
+## 1.2 Aesthetics
 
 ```{r, echo=FALSE, message=FALSE}
 library("readxl")
@@ -553,7 +555,7 @@ include_graphics(img3241_path)
 
 # 4.0 Final Data Visualisation Output
 
-### Data Visualisation Link (Tableau Online):
+### Data Visualisation Link (Tableau Online)
 https://public.tableau.com/views/DataVizMakeoverSingaporesResidentLabourForcein2019/FinalDashboard?:language=en&:display_count=y&:origin=viz_share_link
 
 ```{r, echo=FALSE, message=FALSE, out.width="200%", out.height="200%"}
